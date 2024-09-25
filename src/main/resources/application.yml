@@ -1,1 +1,3 @@
-spring.application.name=rh-funcionario
+server:
+ servlet:
+    context-path: /rh-funcionario/api
