@@ -1,12 +1,16 @@
-package br.com.rh.rh_funcionario.rh.domain;
+package br.com.rh.funcionario.empresa_funcionario.empresa.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,10 +20,12 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@EntityScan
-public class Rh {
-	@org.hibernate.validator.constraints.UUID
-	private UUID idRh;
+@Entity
+public class Empresa {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, unique = true, nullable = false)
+	private UUID idEmpresa;
 	@NotBlank
 	private String nomeCompletoEmpresa;
 	@NotBlank
@@ -36,9 +42,8 @@ public class Rh {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
-	private Rh(@NotBlank String nomeCompletoEmpresa, @NotBlank @Email String email, @NotBlank String celular,
+	private Empresa(@NotBlank String nomeCompletoEmpresa, @NotBlank @Email String email, @NotBlank String celular,
 			String telefone, @NotNull LocalDate dataInicio, @CNPJ String cnpj) {
-		this.idRh = UUID.randomUUID();
 		this.nomeCompletoEmpresa = nomeCompletoEmpresa;
 		this.email = email;
 		this.celular = celular;

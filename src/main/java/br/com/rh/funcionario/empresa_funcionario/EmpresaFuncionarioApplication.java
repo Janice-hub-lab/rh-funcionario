@@ -1,13 +1,13 @@
-package br.com.rh.rh_funcionario;
+package br.com.rh.funcionario.empresa_funcionario;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RhFuncionarioApplication {
+public class EmpresaFuncionarioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RhFuncionarioApplication.class, args);
+		SpringApplication.run(EmpresaFuncionarioApplication.class, args);
 	}
 
 }

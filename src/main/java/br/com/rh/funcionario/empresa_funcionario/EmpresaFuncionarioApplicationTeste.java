@@ -1,4 +1,4 @@
-package br.com.rh.rh_funcionario;
+package br.com.rh.funcionario.empresa_funcionario;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @RequestMapping("/")
-public class RhFuncionarioApplicationTeste {
+public class EmpresaFuncionarioApplicationTeste {
 	
 	@GetMapping
 	public String getHomeTeste() {
-		return "Rh Funcionario - API Home";
+		return "Empresa Funcionario - API Home";
 	}
 
 	
 	public static void main(String[] args) {
-		SpringApplication.run(RhFuncionarioApplicationTeste.class, args);
+		SpringApplication.run(EmpresaFuncionarioApplicationTeste.class, args);
 	}
 
 }
