@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CNPJ;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,16 +42,17 @@ public class Empresa {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
+
 	
-	private Empresa(@NotBlank String nomeCompletoEmpresa, @NotBlank @Email String email, @NotBlank String celular,
-			String telefone, @NotNull LocalDate dataInicio, @CNPJ String cnpj) {
-		this.nomeCompletoEmpresa = nomeCompletoEmpresa;
-		this.email = email;
-		this.celular = celular;
-		this.telefone = telefone;
-		this.dataInicio = dataInicio;
-		this.cnpj = cnpj;
+	public Empresa(EmpresaRequest empresaRequest) {
+		this.nomeCompletoEmpresa = empresaRequest.getNomeCompletoEmpresa();
+		this.email = empresaRequest.getEmail();
+		this.celular = empresaRequest.getCelular();
+		this.telefone = empresaRequest.getTelefone();
+		this.dataInicio = empresaRequest.getDataInicio();
+		this.cnpj = empresaRequest.getCnpj();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+		
 	}
 
 }
