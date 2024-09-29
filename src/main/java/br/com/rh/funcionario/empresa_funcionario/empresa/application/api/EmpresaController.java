@@ -1,5 +1,7 @@
 package br.com.rh.funcionario.empresa_funcionario.empresa.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.service.EmpresaService;
@@ -19,6 +21,13 @@ public class EmpresaController implements EmpresaAPI {
 		EmpresaResponse empresaCriada = empresaService.criaEmpresa(empresaRequest);
 		log.info("[finaliza] EmpresaController - postEmpresa");
 		return empresaCriada;
+	}
+
+	@Override
+	public List<EmpresaListResponse> getTodasEmpresas() {
+		log.info("[inicia] EmpresaController - getTodasEmpresas");
+		log.info("[finaliza] EmpresaController - getTodasEmpresas");
+		return null;
 	}
 
 }
