@@ -1,7 +1,10 @@
 package br.com.rh.funcionario.empresa_funcionario.empresa.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.repository.EmpresaRepository;
 import br.com.rh.funcionario.empresa_funcionario.empresa.domain.Empresa;
 import lombok.RequiredArgsConstructor;
@@ -21,4 +24,12 @@ public class EmpresaInfraRepository implements EmpresaRepository {
 		log.info("[finaliza] EmpresaInfraRepository - salva");
 		return empresa;
 	}
+
+	@Override
+	public List<Empresa> buscaTodasEmpresas() {
+		log.info("[inicia] EmpresaInfraRepository - buscaTodasEmpresas");
+		log.info("[finaliza] EmpresaInfraRepository - buscaTodasEmpresas");
+		return null;
+	}
+
 }

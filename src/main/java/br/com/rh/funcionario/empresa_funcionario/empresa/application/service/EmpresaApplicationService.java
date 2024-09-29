@@ -32,7 +32,11 @@ public class EmpresaApplicationService implements EmpresaService {
 	@Override
 	public List<EmpresaListResponse> buscaTodasEmpresas() {
 		log.info("[inicia] EmpresaApplicationService - buscaTodasEmpresas");
-		log.info("[finaliza] EmpresaApplicationService - buscaTodasEmpresas");	
-		return null;
+		List<Empresa> empresas = empresaRepository.buscaTodasEmpresas();
+		log.info("[finaliza] EmpresaApplicationService - buscaTodasEmpresas");
+		return EmpresaListResponse.converte(empresas);
 	}
-}
+
+
+	}
+
