@@ -28,8 +28,9 @@ public class EmpresaInfraRepository implements EmpresaRepository {
 	@Override
 	public List<Empresa> buscaTodasEmpresas() {
 		log.info("[inicia] EmpresaInfraRepository - buscaTodasEmpresas");
+		List<Empresa> todasEmpresas = empresaSprintDataJPARepository.findAll();
 		log.info("[finaliza] EmpresaInfraRepository - buscaTodasEmpresas");
-		return null;
+		return todasEmpresas;
 	}
 
 }
