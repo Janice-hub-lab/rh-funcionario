@@ -1,7 +1,10 @@
 package br.com.rh.funcionario.empresa_funcionario.empresa.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaRequest;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaResponse;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.repository.EmpresaRepository;
@@ -24,5 +27,12 @@ public class EmpresaApplicationService implements EmpresaService {
 		return EmpresaResponse.builder()
 				.idEmpresa(empresa.getIdEmpresa())
 				.build();
+	}
+
+	@Override
+	public List<EmpresaListResponse> buscaTodasEmpresas() {
+		log.info("[inicia] EmpresaApplicationService - buscaTodasEmpresas");
+		log.info("[finaliza] EmpresaApplicationService - buscaTodasEmpresas");	
+		return null;
 	}
 }
