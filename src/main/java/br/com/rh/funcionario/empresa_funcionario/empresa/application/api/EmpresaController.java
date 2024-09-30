@@ -37,7 +37,8 @@ public class EmpresaController implements EmpresaAPI {
 		log.info("[inicia] EmpresaController - getEmpresaAtravesId");
 		log.info("[idEmpresa] {}", idEmpresa);
 		log.info("[finaliza] EmpresaController - getEmpresaAtravesId");
-		return null;
+		EmpresaDetalhadoResponse empresaDetalhado = empresaService.buscaEmpresaAtravesId(idEmpresa);
+		return empresaDetalhado;
 	}
 
 

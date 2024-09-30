@@ -1,9 +1,11 @@
 package br.com.rh.funcionario.empresa_funcionario.empresa.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaDetalhadoResponse;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaRequest;
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaResponse;
@@ -35,6 +37,13 @@ public class EmpresaApplicationService implements EmpresaService {
 		List<Empresa> empresas = empresaRepository.buscaTodasEmpresas();
 		log.info("[finaliza] EmpresaApplicationService - buscaTodasEmpresas");
 		return EmpresaListResponse.converte(empresas);
+	}
+
+	@Override
+	public EmpresaDetalhadoResponse buscaEmpresaAtravesId(UUID idEmpresa) {
+		log.info("[inicia] EmpresaApplicationService - buscaEmpresaAtravesId");
+		log.info("[finaliza] EmpresaApplicationService - buscaEmpresaAtravesId");
+		return null;
 	}
 
 
