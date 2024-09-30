@@ -1,6 +1,7 @@
 package br.com.rh.funcionario.empresa_funcionario.empresa.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,15 @@ public class EmpresaController implements EmpresaAPI {
 		log.info("[finaliza] EmpresaController - getTodasEmpresas");
 		return empresas;
 	}
+
+	@Override
+	public EmpresaDetalhadoResponse getEmpresaAtravesId(UUID idEmpresa) {
+		log.info("[inicia] EmpresaController - getEmpresaAtravesId");
+		log.info("[idEmpresa] {}", idEmpresa);
+		log.info("[finaliza] EmpresaController - getEmpresaAtravesId");
+		return null;
+	}
+
+
 
 }
