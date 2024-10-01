@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.service.EmpresaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -48,6 +49,13 @@ public class EmpresaController implements EmpresaAPI {
 		empresaService.deletaEmpresaatravesId(idEmpresa);
 		log.info("[finaliza] EmpresaController - deletaEmpresaAtravesId");
 		
+	}
+
+	@Override
+	public void patchAlteraEmpresa(UUID idEmpresa, @Valid EmpresaAlteracaoRequest empresaAlteracaoRequest) {
+		log.info("[inicia] EmpresaController - patchAlteraEmpresa");
+		log.info("[idEmpresa] {}", idEmpresa);
+		log.info("[finaliza] EmpresaController - patchAlteraEmpresa");
 	}
 
 
