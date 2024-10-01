@@ -45,6 +45,7 @@ public class EmpresaController implements EmpresaAPI {
 	public void deletaEmpresaAtravesId(UUID idEmpresa) {
 		log.info("[inicia] EmpresaController - deletaEmpresaAtravesId");
 		log.info("[idEmpresa] {}", idEmpresa);
+		empresaService.deletaEmpresaatravesId(idEmpresa);
 		log.info("[finaliza] EmpresaController - deletaEmpresaAtravesId");
 		
 	}

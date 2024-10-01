@@ -12,5 +12,6 @@ public interface EmpresaService {
 	EmpresaResponse criaEmpresa(EmpresaRequest empresaRequest);
 	List<EmpresaListResponse> buscaTodasEmpresas();
 	EmpresaDetalhadoResponse buscaEmpresaAtravesId(UUID idEmpresa);
+	void deletaEmpresaatravesId(UUID idEmpresa);
 
 }

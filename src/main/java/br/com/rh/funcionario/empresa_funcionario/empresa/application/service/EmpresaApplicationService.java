@@ -12,7 +12,6 @@ import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.Empresa
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.repository.EmpresaRepository;
 import br.com.rh.funcionario.empresa_funcionario.empresa.domain.Empresa;
 import lombok.RequiredArgsConstructor;
-import lombok.var;
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -46,6 +45,15 @@ public class EmpresaApplicationService implements EmpresaService {
 		Empresa empresa = empresaRepository.buscaEmpresaAtravesId(idEmpresa);
 		log.info("[finaliza] EmpresaApplicationService - buscaEmpresaAtravesId");
 		return new EmpresaDetalhadoResponse(empresa);
+	}
+
+	@Override
+	public void deletaEmpresaatravesId(UUID idEmpresa) {
+		log.info("[inicia] EmpresaApplicationService - deletaEmpresaatravesId");
+		Empresa empresa = empresaRepository.buscaEmpresaAtravesId(idEmpresa);
+		//empresaRepository.deletaEmpresa(empresa);
+		log.info("[finaliza] EmpresaApplicationService - deletaEmpresaatravesId");
+		
 	}
 
 
