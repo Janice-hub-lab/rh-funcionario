@@ -51,7 +51,7 @@ public class EmpresaApplicationService implements EmpresaService {
 	public void deletaEmpresaatravesId(UUID idEmpresa) {
 		log.info("[inicia] EmpresaApplicationService - deletaEmpresaatravesId");
 		Empresa empresa = empresaRepository.buscaEmpresaAtravesId(idEmpresa);
-		//empresaRepository.deletaEmpresa(empresa);
+		empresaRepository.deletaEmpresa(empresa);
 		log.info("[finaliza] EmpresaApplicationService - deletaEmpresaatravesId");
 		
 	}
