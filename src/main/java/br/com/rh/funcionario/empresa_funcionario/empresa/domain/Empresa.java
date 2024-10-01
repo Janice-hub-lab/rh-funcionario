@@ -31,6 +31,7 @@ public class Empresa {
 	private String nomeCompletoEmpresa;
 	@NotBlank
 	@Email
+	@Column(unique = true)
 	private String email;
 	@NotBlank
 	private String celular;
@@ -38,6 +39,7 @@ public class Empresa {
 	@NotNull
 	private LocalDate dataInicio;
 	@CNPJ
+	@Column(unique = true)
 	private String cnpj;
 	
 	private LocalDateTime dataHoraDoCadastro;
