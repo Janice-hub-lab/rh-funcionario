@@ -28,8 +28,10 @@ public class FuncionarioController implements FuncionarioAPI {
 	public List<FuncionarioEmpresaListResponse> getFuncionariosEmpresaComId(UUID idEmpresa) {
 		log.info("[inicia] FuncionarioController - getFuncionariosEmpresaComId");
 		log.info("[idEmpresa] {}", idEmpresa);
+		List<FuncionarioEmpresaListResponse> funcionariosDaEmpresa = funcionarioService
+				.buscaFuncionariosDaEmpresaComId(idEmpresa);
 		log.info("[finaliza] FuncionarioController - getFuncionariosEmpresaComId");
-		return null;
+		return funcionariosDaEmpresa;
 	}
 
 }

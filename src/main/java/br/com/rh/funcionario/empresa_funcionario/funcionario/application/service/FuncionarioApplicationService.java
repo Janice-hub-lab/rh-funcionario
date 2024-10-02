@@ -1,10 +1,12 @@
 package br.com.rh.funcionario.empresa_funcionario.funcionario.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.service.EmpresaService;
+import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioEmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioRequest;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.domain.Funcionario;
@@ -26,6 +28,14 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		Funcionario funcionario = funcionarioRepository.salvaFuncionario(new Funcionario(idEmpresa, funcionarioRequest));
 		log.info("[finish] FuncionarioApplicationService - criaFuncionario");
 		return new FuncionarioResponse(funcionario.getIdFuncionario());
+	}
+
+	@Override
+	public List<FuncionarioEmpresaListResponse> buscaFuncionariosDaEmpresaComId(UUID idEmpresa) {
+		log.info("[start] FuncionarioApplicationService - buscaFuncionariosDaEmpresaComId");
+		empresaService.buscaEmpresaAtravesId(idEmpresa);
+		log.info("[finish] FuncionarioApplicationService - buscaFuncionariosDaEmpresaComId");
+		return null;
 	}
 
 }
