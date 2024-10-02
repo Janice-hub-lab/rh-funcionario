@@ -27,8 +27,9 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 	@Override
 	public List<Funcionario> buscaFuncionariosDaEmpresaComId(UUID idEmpresa) {
 		log.info("[start] FuncionarioInfraRepository - buscaFuncionariosDaEmpresaComId");
+		var funcionarios = funcionarioSpringDataJPARepository.findByIdEmpresa(idEmpresa);
 		log.info("[finish] FuncionarioInfraRepository - buscaFuncionariosDaEmpresaComId");
-		return null;
+		return funcionarios;
 	}
 
 }
