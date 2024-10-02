@@ -33,5 +33,12 @@ public class FuncionarioController implements FuncionarioAPI {
 		log.info("[finaliza] FuncionarioController - getFuncionariosEmpresaComId");
 		return funcionariosDaEmpresa;
 	}
+	@Override
+	public FuncionarioEmpresaDetalheResponse getFuncionarioComId(UUID idEmpresa, UUID idFuncionario) {
+		log.info("[inicia] FuncionarioController - getFuncionarioComId");
+		log.info("[idEmpresa] {} - [idFuncionario] {}", idEmpresa, idFuncionario);
+		log.info("[finaliza] FuncionarioController - getFuncionarioComId");
+		return null;
+	}
 
 }

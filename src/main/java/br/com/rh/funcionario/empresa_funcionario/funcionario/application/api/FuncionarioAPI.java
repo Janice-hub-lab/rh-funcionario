@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.application.api.EmpresaDetalhadoResponse;
 import jakarta.validation.Valid;
 
 @RestController
@@ -24,6 +25,13 @@ public interface FuncionarioAPI {
 
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<FuncionarioEmpresaListResponse> getFuncionariosEmpresaComId(@PathVariable UUID idEmpresa);
+	List<FuncionarioEmpresaListResponse> getFuncionariosEmpresaComId
+	(@PathVariable UUID idEmpresa);
+	
+	@GetMapping(value = "/{idFuncionario}")
+	@ResponseStatus(code = HttpStatus.OK)
+	FuncionarioEmpresaDetalheResponse getFuncionarioComId(@PathVariable 
+			UUID idEmpresa, @PathVariable UUID idFuncionario);
+	
 
 }
