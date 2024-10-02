@@ -3,8 +3,10 @@ package br.com.rh.funcionario.empresa_funcionario.funcionario.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.rh.funcionario.empresa_funcionario.empresa.handler.APIException;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.service.FuncionarioRepository;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.domain.Funcionario;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +32,15 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 		var funcionarios = funcionarioSpringDataJPARepository.findByIdEmpresa(idEmpresa);
 		log.info("[finish] FuncionarioInfraRepository - buscaFuncionariosDaEmpresaComId");
 		return funcionarios;
+	}
+
+	@Override
+	public Funcionario buscaFuncionario(UUID idFuncionario) {
+		log.info("[start] FuncionarioInfraRepository - buscaFuncionario");
+		var funcionario = funcionarioSpringDataJPARepository.findById(idFuncionario)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Funcionario não encontrado para o ID =" + idFuncionario));
+		log.info("[finish] FuncionarioInfraRepository - buscaFuncionario");
+		return funcionario;
 	}
 
 }
