@@ -51,4 +51,11 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		return new FuncionarioEmpresaDetalheResponse(funcionario);
 	}
 
+	@Override
+	public void deletaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario) {
+		log.info("[start] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
+		log.info("[finish] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
+		
+	}
+
 }

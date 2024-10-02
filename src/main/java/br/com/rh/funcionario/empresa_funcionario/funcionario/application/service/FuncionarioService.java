@@ -13,5 +13,5 @@ public interface FuncionarioService {
 	FuncionarioResponse criaFuncionario(UUID idEmpresa, @Valid FuncionarioRequest funcionarioRequest);
 	List<FuncionarioEmpresaListResponse> buscaFuncionariosDaEmpresaComId(UUID idEmpresa);
 	FuncionarioEmpresaDetalheResponse buscaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario);
-
+	void deletaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario);
 }
