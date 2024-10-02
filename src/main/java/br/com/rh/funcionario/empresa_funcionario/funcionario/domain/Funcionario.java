@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idFuncionario",  updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idFuncionario", updatable = false, unique = true, nullable = false)
 	private UUID idFuncionario;
 	@NotNull
 	private UUID idEmpresa;
@@ -33,10 +33,10 @@ public class Funcionario {
 	private double salario;
 	private String telefone;
 	private String endereco;
-	
+
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
-	
+
 	public Funcionario(UUID idEmpresa, @Valid FuncionarioRequest funcionarioRequest) {
 		this.idFuncionario = idFuncionario;
 		this.idEmpresa = idEmpresa;
@@ -46,12 +46,7 @@ public class Funcionario {
 		this.telefone = funcionarioRequest.getTelefone();
 		this.endereco = funcionarioRequest.getEndereco();
 		this.dataHoraDoCadastro = LocalDateTime.now();
-		
-	}
-
 
 	}
 
-
-
-
+}
