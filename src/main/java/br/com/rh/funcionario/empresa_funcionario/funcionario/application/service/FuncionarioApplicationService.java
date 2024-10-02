@@ -45,8 +45,7 @@ public class FuncionarioApplicationService implements FuncionarioService {
 	public FuncionarioEmpresaDetalheResponse buscaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario) {
 		log.info("[start] FuncionarioApplicationService - buscaFuncionarioDaEmpresaComId");
 		empresaService.buscaEmpresaAtravesId(idEmpresa);
-		Funcionario funcionario = funcionarioRepository
-				.buscaFuncionario(idFuncionario);
+		Funcionario funcionario = funcionarioRepository.buscaFuncionario(idFuncionario);
 		log.info("[finish] FuncionarioApplicationService - buscaFuncionarioDaEmpresaComId");
 		return new FuncionarioEmpresaDetalheResponse(funcionario);
 	}
@@ -54,6 +53,8 @@ public class FuncionarioApplicationService implements FuncionarioService {
 	@Override
 	public void deletaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario) {
 		log.info("[start] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
+		Funcionario funcionario = funcionarioRepository.buscaFuncionario(idFuncionario);
+		funcionarioRepository.deletaFuncionario(funcionario);
 		log.info("[finish] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
 		
 	}
