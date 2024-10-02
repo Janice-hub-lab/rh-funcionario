@@ -1,5 +1,6 @@
 package br.com.rh.funcionario.empresa_funcionario.funcionario.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,13 @@ public class FuncionarioController implements FuncionarioAPI {
 		FuncionarioResponse funcionario = funcionarioService.criaFuncionario(idEmpresa, funcionarioRequest);
 		log.info("[finaliza] FuncionarioController - postFuncionario");
 		return funcionario;
+	}
+	@Override
+	public List<FuncionarioEmpresaListResponse> getFuncionariosEmpresaComId(UUID idEmpresa) {
+		log.info("[inicia] FuncionarioController - getFuncionariosEmpresaComId");
+		log.info("[idEmpresa] {}", idEmpresa);
+		log.info("[finaliza] FuncionarioController - getFuncionariosEmpresaComId");
+		return null;
 	}
 
 }
