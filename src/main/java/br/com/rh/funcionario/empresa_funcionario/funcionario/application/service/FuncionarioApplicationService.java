@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.service.EmpresaService;
+import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioEmpresaDetalheResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioEmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioRequest;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioResponse;
@@ -38,6 +39,13 @@ public class FuncionarioApplicationService implements FuncionarioService {
 				.buscaFuncionariosDaEmpresaComId(idEmpresa);
 		log.info("[finish] FuncionarioApplicationService - buscaFuncionariosDaEmpresaComId");
 		return FuncionarioEmpresaListResponse.converte(funcionariosDaEmpresa);
+	}
+
+	@Override
+	public FuncionarioEmpresaDetalheResponse buscaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario) {
+		log.info("[start] FuncionarioApplicationService - buscaFuncionarioDaEmpresaComId");
+		log.info("[finish] FuncionarioApplicationService - buscaFuncionarioDaEmpresaComId");
+		return null;
 	}
 
 }
