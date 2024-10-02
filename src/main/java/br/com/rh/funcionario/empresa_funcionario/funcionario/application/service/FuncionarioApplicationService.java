@@ -34,8 +34,10 @@ public class FuncionarioApplicationService implements FuncionarioService {
 	public List<FuncionarioEmpresaListResponse> buscaFuncionariosDaEmpresaComId(UUID idEmpresa) {
 		log.info("[start] FuncionarioApplicationService - buscaFuncionariosDaEmpresaComId");
 		empresaService.buscaEmpresaAtravesId(idEmpresa);
+		List<Funcionario> funcionariosDaEmpresa = funcionarioRepository
+				.buscaFuncionariosDaEmpresaComId(idEmpresa);
 		log.info("[finish] FuncionarioApplicationService - buscaFuncionariosDaEmpresaComId");
-		return null;
+		return FuncionarioEmpresaListResponse.converte(funcionariosDaEmpresa);
 	}
 
 }

@@ -1,5 +1,8 @@
 package br.com.rh.funcionario.empresa_funcionario.funcionario.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.service.FuncionarioRepository;
@@ -19,6 +22,13 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 		funcionarioSpringDataJPARepository.save(funcionario);
 		log.info("[finish] FuncionarioInfraRepository - salvaFuncionario");
 		return funcionario;
+	}
+
+	@Override
+	public List<Funcionario> buscaFuncionariosDaEmpresaComId(UUID idEmpresa) {
+		log.info("[start] FuncionarioInfraRepository - buscaFuncionariosDaEmpresaComId");
+		log.info("[finish] FuncionarioInfraRepository - buscaFuncionariosDaEmpresaComId");
+		return null;
 	}
 
 }
