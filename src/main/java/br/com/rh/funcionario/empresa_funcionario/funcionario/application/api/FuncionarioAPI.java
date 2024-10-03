@@ -39,7 +39,7 @@ public interface FuncionarioAPI {
 
 	@PatchMapping(value = "/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	FuncionarioResponse patchFuncionario(@PathVariable UUID idEmpresa, @PathVariable UUID idFuncionario,
+	void patchFuncionario(@PathVariable UUID idEmpresa, @PathVariable UUID idFuncionario,
 			@Valid @RequestBody FuncionarioAlteracaoRequest funcionarioAlteracaoRequest);
 
 }
