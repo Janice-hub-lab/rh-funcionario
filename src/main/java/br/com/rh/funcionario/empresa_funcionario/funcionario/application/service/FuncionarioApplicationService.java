@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.rh.funcionario.empresa_funcionario.empresa.application.service.EmpresaService;
+import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioAlteracaoRequest;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioEmpresaDetalheResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioEmpresaListResponse;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioRequest;
@@ -53,9 +54,23 @@ public class FuncionarioApplicationService implements FuncionarioService {
 	@Override
 	public void deletaFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario) {
 		log.info("[start] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
+		empresaService.buscaEmpresaAtravesId(idEmpresa);
 		Funcionario funcionario = funcionarioRepository.buscaFuncionario(idFuncionario);
 		funcionarioRepository.deletaFuncionario(funcionario);
 		log.info("[finish] FuncionarioApplicationService - deletaFuncionarioDaEmpresaComId");
+		
+	}
+
+	@Override
+	public void alteraFuncionarioDaEmpresaComId(UUID idEmpresa, UUID idFuncionario,
+			FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
+		log.info("[start] FuncionarioApplicationService - alteraFuncionarioDaEmpresaComId");
+		empresaService.buscaEmpresaAtravesId(idEmpresa);
+		Funcionario funcionario = funcionarioRepository.buscaFuncionario(idFuncionario);
+		pet.alteraFuncionario(funcionarioAlteracaoRequest);
+		funcionarioRepository.salvaFuncionario(funcionario);
+		log.info("[finish] FuncionarioApplicationService - alteraFuncionarioDaEmpresaComId");
+
 		
 	}
 

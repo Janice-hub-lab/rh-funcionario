@@ -54,6 +54,7 @@ public class FuncionarioController implements FuncionarioAPI {
 			@Valid FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
 		log.info("[inicia] FuncionarioController - patchFuncionario");
 		log.info("[idEmpresa] {} - [idFuncionario] {}", idEmpresa, idFuncionario);
+		funcionarioService.alteraFuncionarioDaEmpresaComId(idEmpresa, idFuncionario, funcionarioAlteracaoRequest);
 		log.info("[finaliza] FuncionarioController - patchFuncionario");
 	}
 }

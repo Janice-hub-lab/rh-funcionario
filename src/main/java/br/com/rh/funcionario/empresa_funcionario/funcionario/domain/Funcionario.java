@@ -3,6 +3,7 @@ package br.com.rh.funcionario.empresa_funcionario.funcionario.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioAlteracaoRequest;
 import br.com.rh.funcionario.empresa_funcionario.funcionario.application.api.FuncionarioRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +38,7 @@ public class Funcionario {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 
+	
 	public Funcionario(UUID idEmpresa, @Valid FuncionarioRequest funcionarioRequest) {
 		this.idFuncionario = idFuncionario;
 		this.idEmpresa = idEmpresa;
@@ -47,6 +49,16 @@ public class Funcionario {
 		this.endereco = funcionarioRequest.getEndereco();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 
+	}
+
+	public void alteraFuncionario(FuncionarioAlteracaoRequest funcionarioRequest) {
+		this.nomeCompletoFuncionario = funcionarioRequest.getNomeCompletoFuncionario();
+		this.cargo = funcionarioRequest.getCargo();
+		this.salario = funcionarioRequest.getSalario();
+		this.telefone = funcionarioRequest.getTelefone();
+		this.endereco = funcionarioRequest.getEndereco();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
+		
 	}
 
 }
